@@ -1,0 +1,1 @@
+<?php chdir('wiki');include('pmwiki.php'); ?>

@@ -1,0 +1,14 @@
+9c9
+< $WikiTitle = 'PmWiki';
+---
+> $WikiTitle = 'Fred Leason\'s Awsome Enterprise Cloud Demo';
+13,14c13,14
+< # $ScriptUrl = 'http://www.mydomain.com/path/to/pmwiki.php';
+< # $PubDirUrl = 'http://www.mydomain.com/path/to/pub';
+---
+> $ScriptUrl = 'http://209.251.181.162/wiki/pmwiki.php';
+> $PubDirUrl = 'http://209.251.181.162/wiki/pub';
+22c22
+< # $EnablePathInfo = 1;
+---
+> $EnablePathInfo = 1;
