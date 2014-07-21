@@ -22,9 +22,9 @@ sed -e "s/1.1.1.1/$IP/g" diffconfig.patch.in > diffconfig.patch
 sed -e "s/1.1.1.1/$IP/g" wikiDemoScript.sh.in > wikiDemoScript.sh
 chmod +x wikiDemoScript.sh
 
-# scp -i ${pem} wikiDemoScript.sh index.php diffconfig.patch ${loginID}@${IP}:~/
+scp -i ${pem} wikiDemoScript.sh index.php diffconfig.patch ${loginID}@${IP}:~/
 
-echo "Now open another Terminal session and log into the demo server with \n"
+echo "Now open another Terminal session and log into the demo server with "
 echo "ssh -i ${pem} ${loginID}@${IP}"
 
 read

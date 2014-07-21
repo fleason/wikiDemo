@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 # This script is uploaded to the Server and then is executed from there.
 
 sudo chage -M 99999 cloud

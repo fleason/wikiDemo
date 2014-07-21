@@ -1,7 +1,7 @@
 9c9
 < $WikiTitle = 'PmWiki';
 ---
-> $WikiTitle = 'Fred Leason\'s Awsome Enterprise Cloud Demo';
+> $WikiTitle = 'Fred Leason\'s Awesome Enterprise Cloud Demo';
 13,14c13,14
 < # $ScriptUrl = 'http://www.mydomain.com/path/to/pmwiki.php';
 < # $PubDirUrl = 'http://www.mydomain.com/path/to/pub';
