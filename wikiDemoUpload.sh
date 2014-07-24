@@ -1,30 +1,44 @@
 #!/bin/bash
 # This script uploads necessary demo files to the demo server
 #
-#	-p <file>	name of .pem file to be used for scp and ssh
+#	-s <file>	name of .pem file to be used for scp and ssh
 #	-l <loginID>	login of linux server.  Default "cloud"
 #	-i <IP>   	public IP address of linux server
+#	-p <port>	http port.  Default "80"
 #
 pem='fleason_me_com.pem'
 loginID='cloud'
 IP='209.251.181.162'
+port=''
+portstr=''
 
-while getopts 'p:l:i:' flag; do
+while getopts 's:l:i:p:' flag; do
   case "${flag}" in
-    p) pem="${OPTARG}" ;;
-    l) loginID="${OPTARG}" ;;
-    i) IP="${OPTARG}" ;;
-    *) error "Unexpected option ${flag}" ;;
+	s) pem="${OPTARG}" ;;
+	l) loginID="${OPTARG}" ;;
+	i) IP="${OPTARG}" ;;
+	p) port="${OPTARG}" ;;
+	*) error "Unexpected option ${flag}" ;;
   esac
 done
 
-sed -e "s/1.1.1.1/$IP/g" diffconfig.patch.in > diffconfig.patch
-sed -e "s/1.1.1.1/$IP/g" wikiDemoScript.sh.in > wikiDemoScript.sh
+echo $port
+
+case $port in
+
+	''|'80')	portstr='' port='80' ;;
+	*)		portstr=":$port" ;;
+	esac
+
+echo $port $portstr
+
+sed -e "s/1.1.1.1/$IP$portstr/g" diffconfig.patch.in > diffconfig.patch
+sed -e "s/1.1.1.1/$IP$portstr/g" -e "s/PORT/$port/g" wikiDemoScript.sh.in > wikiDemoScript.sh
+
 chmod +x wikiDemoScript.sh
 
 scp -i ${pem} wikiDemoScript.sh index.php diffconfig.patch ${loginID}@${IP}:~/
 
 echo "Now open another Terminal session and log into the demo server with "
 echo "ssh -i ${pem} ${loginID}@${IP}"
-
-read
+echo ""

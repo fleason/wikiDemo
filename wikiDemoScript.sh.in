@@ -3,15 +3,19 @@
 
 sudo chage -M 99999 cloud
 
-echo "If you try to open 1.1.1.1 you will get an error."
+read -p "If you try to open 1.1.1.1 you will get an error."
 
 sudo apt-get update
 sudo apt-get -y install apache2
+
+sudo sed -i -e "s/80/PORT/g" /etc/apache2/sites-available/default
+sudo sed -i -e "s/80/PORT/g" /etc/apache2/ports.conf
+
+sudo /etc/init.d/apache2 restart
+
 sudo apt-get -y install vim gcc make wget php5
 
-echo "Now if you open 1.1.1.1 you see apache has been installed."
-
-read
+read -p "if you open 1.1.1.1 you will see that apache has been installed."
 
 while true; do
 	read -p "Do you want to update VMware Tools?  Remember to mount VMware Tools CD Rom.  (Y/N) " yn
@@ -22,13 +26,11 @@ while true; do
 			sudo ./vmware-tools-distrib/vmware-install.pl -d;
 			break;;
 		[Nn]* ) break;;
-		* ) echo "Please andwer y or n.";;
+		* ) echo "Please answer y or n.";;
 	esac
 done
 
-echo "Now get wiki software.  Hit Enter."
-
-read
+read -p "Now get wiki software.  Hit Enter."
 
 wget http://pmwiki.org/pub/pmwiki/pmwiki-2.2.65.tgz
 
@@ -40,9 +42,7 @@ sudo chmod 2777 /var/www/wiki
 sudo mkdir /var/www/wiki/wiki.d
 sudo chmod 777 /var/www/wiki/wiki.d
 
-echo "Now open http://1.1.1.1/wiki/pmwiki.php with browser.  Hit Enter. "
-
-read
+read -p "Now open http://1.1.1.1/wiki/pmwiki.php with browser.  Hit Enter. "
 
 sudo cp /var/www/wiki/docs/sample-config.php /var/www/wiki/local/config.php
 
@@ -51,7 +51,6 @@ sudo patch /var/www/wiki/local/config.php diffconfig.patch
 sudo cp index.php /var/www
 sudo rm /var/www/index.html
 
-echo "Now open your browser to 1.1.1.1  Hit edit and add some content."
-read
+read -p "Now open http://1.1.1.1 and edit the wiki."
 
 

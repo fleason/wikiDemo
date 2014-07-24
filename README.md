@@ -8,9 +8,10 @@ mv or cp your .pem file into the directory.
 
 run wikiDemoUpload.sh with the following flags:
 
-#	-p <file>	name of .pem file to be used for scp and ssh
+#	-s <file>	name of .pem file to be used for scp and ssh
 #	-l <loginID>	login of linux server.  Default "cloud"
 #	-i <IP>   	public IP address of linux server
+#	-p <port>	http port.  Default "80"
 
 This will create wikiDemoScript.sh and diffconfig.patch file in the local directory and upload those plus index.php into your linux server using scp.
 
@@ -24,6 +25,7 @@ The wikiDemoScript.sh does the following:
 
 	Update apt-get
 	Install apache2
+	change the default http port if other than 80 and restart apache2
 	Install php5 and some tools
 
 Pauses at this point to show that your IP address shows that apache is installed.
