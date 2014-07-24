@@ -8,10 +8,10 @@ mv or cp your .pem file into the directory.
 
 run wikiDemoUpload.sh with the following flags:
 
-#	-s <file>	name of .pem file to be used for scp and ssh
-#	-l <loginID>	login of linux server.  Default "cloud"
-#	-i <IP>   	public IP address of linux server
-#	-p <port>	http port.  Default "80"
+	-s <file>	name of .pem file to be used for scp and ssh
+	-l <loginID>	login of linux server.  Default "cloud"
+	-i <IP>   	public IP address of linux server
+	-p <port>	http port.  Default "80"
 
 This will create wikiDemoScript.sh and diffconfig.patch file in the local directory and upload those plus index.php into your linux server using scp.
 
