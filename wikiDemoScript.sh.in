@@ -15,7 +15,7 @@ sudo /etc/init.d/apache2 restart
 
 sudo apt-get -y install vim wget php5
 
-read -p "if you open 1.1.1.1 you will see that apache has been installed."
+read -p "If you open 1.1.1.1 you will see that apache has been installed."
 
 while true; do
 	read -p "Do you want to update VMware Tools?  Remember to mount VMware Tools CD Rom.  (Y/N) " yn
