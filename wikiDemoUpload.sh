@@ -22,15 +22,11 @@ while getopts 's:l:i:p:' flag; do
   esac
 done
 
-echo $port
-
 case $port in
 
 	''|'80')	portstr='' port='80' ;;
 	*)		portstr=":$port" ;;
 	esac
-
-echo $port $portstr
 
 sed -e "s/1.1.1.1/$IP$portstr/g" diffconfig.patch.in > diffconfig.patch
 sed -e "s/1.1.1.1/$IP$portstr/g" -e "s/PORT/$port/g" wikiDemoScript.sh.in > wikiDemoScript.sh
