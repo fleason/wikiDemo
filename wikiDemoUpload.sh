@@ -6,9 +6,9 @@
 #	-i <IP>   	public IP address of linux server
 #	-p <port>	http port.  Default "80"
 #
-pem='fleason_me_com.pem'
+pem='fleason_terremark_com.pem'
 loginID='cloud'
-IP='209.251.181.162'
+IP='208.39.112.185'
 port=''
 portstr=''
 

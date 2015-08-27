@@ -6,8 +6,8 @@
 < # $ScriptUrl = 'http://www.mydomain.com/path/to/pmwiki.php';
 < # $PubDirUrl = 'http://www.mydomain.com/path/to/pub';
 ---
-> $ScriptUrl = 'http://1.1.1.1/wiki/pmwiki.php';
-> $PubDirUrl = 'http://1.1.1.1/wiki/pub';
+> $ScriptUrl = 'http://208.39.112.185/wiki/pmwiki.php';
+> $PubDirUrl = 'http://208.39.112.185/wiki/pub';
 22c22
 < # $EnablePathInfo = 1;
 ---
